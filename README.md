@@ -36,7 +36,7 @@ A production-ready AI-powered SaaS platform with comprehensive authentication, p
 
 ## Testing
 
-This project has **world-class test coverage** with **534+ tests** across multiple categories:
+This project has **world-class test coverage** with **600+ tests** across multiple categories:
 
 - **Unit Tests:** 241 tests with 95%+ coverage
 - **E2E Tests:** 88 comprehensive user journey tests
@@ -44,6 +44,9 @@ This project has **world-class test coverage** with **534+ tests** across multip
 - **Performance Tests:** 20+ benchmark tests
 - **Resilience Tests:** 25+ error recovery tests
 - **Concurrency Tests:** 30+ race condition tests
+- **Database Tests:** Real database integration tests
+- **Contract Tests:** API contract validation (Pact)
+- **Mutation Tests:** Test quality verification (Stryker)
 
 ### Running Tests
 
@@ -55,6 +58,13 @@ npm test
 npm run test:unit           # Unit tests
 npm run test:integration    # Integration tests
 npm run test:e2e           # End-to-end tests (Playwright)
+npm run test:database       # Database integration tests
+npm run test:performance    # Performance benchmarks
+npm run test:resilience     # Error recovery tests
+npm run test:concurrency    # Race condition tests
+npm run test:contract       # API contract tests
+npm run test:mutation       # Mutation testing (slow!)
+npm run test:all           # All tests (unit + E2E)
 
 # Generate coverage report
 npm run test:coverage
@@ -69,6 +79,9 @@ npm run test:watch
 - **[TEST_IMPLEMENTATION_SUMMARY.md](./TEST_IMPLEMENTATION_SUMMARY.md)** - Implementation summary and metrics
 - **[TEST_COVERAGE_ANALYSIS.md](./TEST_COVERAGE_ANALYSIS.md)** - Detailed coverage analysis and strategy
 - **[TESTING_QUICK_START.md](./TESTING_QUICK_START.md)** - Get started with testing in 5 minutes
+- **[MUTATION_TESTING.md](./MUTATION_TESTING.md)** - Guide to mutation testing with Stryker
+- **[tests/database/README.md](./tests/database/README.md)** - Database integration testing guide
+- **[tests/contract/README.md](./tests/contract/README.md)** - Contract testing guide
 
 ## Project Structure
 
@@ -81,11 +94,16 @@ ai-saas-platform/
 │   └── types/            # TypeScript type definitions
 ├── tests/
 │   ├── e2e/              # End-to-end tests (Playwright)
-│   ├── integration/      # Integration tests
+│   ├── integration/      # Multi-service integration tests
+│   ├── database/         # Real database integration tests
+│   ├── contract/         # API contract tests (Pact)
 │   ├── performance/      # Performance benchmarks
 │   ├── resilience/       # Error recovery tests
-│   └── concurrency/      # Race condition tests
-└── .github/workflows/    # CI/CD configuration
+│   ├── concurrency/      # Race condition tests
+│   └── examples/         # Example/template tests
+├── .github/workflows/    # CI/CD configuration
+├── stryker.conf.json     # Mutation testing config
+└── playwright.config.ts  # E2E testing config
 ```
 
 ## CI/CD

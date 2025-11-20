@@ -1,60 +1,29 @@
-// Example integration test
-// Integration tests focus on testing how multiple components work together
+/**
+ * Integration Test Examples
+ *
+ * Real integration tests have been moved to /tests/integration directory:
+ *
+ * - auth-payment-integration.test.ts: Tests authentication + payment service integration
+ * - ai-ratelimiter-integration.test.ts: Tests AI service + rate limiter integration
+ * - payment-usage-tracking-integration.test.ts: Tests payment + usage tracking integration
+ *
+ * These tests cover:
+ * - Multi-service workflows
+ * - Complete user journeys (registration → subscription → usage)
+ * - Cross-component interactions
+ * - Concurrent operations
+ * - Error recovery flows
+ *
+ * This file is kept for backward compatibility.
+ */
 
-describe('Example Integration Tests', () => {
-  // Example: Testing a service that uses multiple dependencies
-  describe('UserService Integration', () => {
-    // In a real scenario, you would:
-    // 1. Set up test database
-    // 2. Create mock external services
-    // 3. Test full workflows
+describe('Integration Test Examples', () => {
+  it('should reference actual integration tests in /tests/integration', () => {
+    // All real integration tests are now in:
+    // - tests/integration/auth-payment-integration.test.ts
+    // - tests/integration/ai-ratelimiter-integration.test.ts
+    // - tests/integration/payment-usage-tracking-integration.test.ts
 
-    beforeEach(() => {
-      // Setup: Create test data, initialize services
-    });
-
-    afterEach(() => {
-      // Cleanup: Remove test data, reset mocks
-    });
-
-    it('should create user and send welcome email', async () => {
-      // This is a placeholder for a real integration test
-      // In reality, this would:
-      // 1. Call UserService.createUser()
-      // 2. Verify user is saved to database
-      // 3. Verify email service was called
-      // 4. Verify user received correct permissions
-
-      const mockUser = {
-        email: 'test@example.com',
-        name: 'Test User',
-      };
-
-      // const user = await userService.create(mockUser);
-      // expect(user).toHaveProperty('id');
-      // expect(emailService.sendWelcomeEmail).toHaveBeenCalledWith(mockUser.email);
-
-      expect(true).toBe(true); // Placeholder
-    });
-
-    it('should handle duplicate email error', async () => {
-      // Test error handling in integration scenarios
-      expect(true).toBe(true); // Placeholder
-    });
-  });
-
-  describe('API Endpoint Integration', () => {
-    it('should authenticate and return user data', async () => {
-      // Example using supertest for API testing
-      // const response = await request(app)
-      //   .post('/api/auth/login')
-      //   .send({ email: 'test@example.com', password: 'password' })
-      //   .expect(200);
-      //
-      // expect(response.body).toHaveProperty('token');
-      // expect(response.body).toHaveProperty('user');
-
-      expect(true).toBe(true); // Placeholder
-    });
+    expect(true).toBe(true);
   });
 });

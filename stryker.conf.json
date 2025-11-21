@@ -1,0 +1,58 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "_comment": "This config file was generated using 'stryker init'. Please see the guide for more information: https://stryker-mutator.io/docs/stryker-js/guides/angular",
+  "packageManager": "npm",
+  "reporters": [
+    "html",
+    "clear-text",
+    "progress",
+    "dashboard"
+  ],
+  "testRunner": "jest",
+  "jest": {
+    "projectType": "custom",
+    "configFile": "jest.config.js",
+    "enableFindRelatedTests": true
+  },
+  "coverageAnalysis": "perTest",
+  "mutate": [
+    "src/**/*.ts",
+    "!src/**/*.test.ts",
+    "!src/**/*.spec.ts",
+    "!src/types/**/*.ts",
+    "!src/**/*.d.ts",
+    "!src/**/*.interface.ts"
+  ],
+  "thresholds": {
+    "high": 80,
+    "low": 60,
+    "break": 50
+  },
+  "timeoutMS": 60000,
+  "timeoutFactor": 2,
+  "maxConcurrentTestRunners": 2,
+  "tempDirName": "stryker-tmp",
+  "cleanTempDir": true,
+  "mutator": {
+    "plugins": [
+      "@stryker-mutator/typescript-checker"
+    ],
+    "excludedMutations": [
+      "StringLiteral",
+      "BlockStatement"
+    ]
+  },
+  "checkers": [
+    "typescript"
+  ],
+  "tsconfigFile": "tsconfig.json",
+  "disableTypeChecks": false,
+  "ignorePatterns": [
+    "dist",
+    "coverage",
+    "node_modules",
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "tests/**"
+  ]
+}

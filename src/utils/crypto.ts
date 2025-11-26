@@ -9,6 +9,10 @@ export class CryptoUtil {
    * Hash a password using PBKDF2
    */
   static async hashPassword(password: string): Promise<string> {
+    if (typeof password !== 'string' || password.length === 0) {
+      return Promise.reject(new Error('Password must be a non-empty string'));
+    }
+
     return new Promise((resolve, reject) => {
       const salt = crypto.randomBytes(16).toString('hex');
 
@@ -30,6 +34,10 @@ export class CryptoUtil {
    * Verify a password against a hash
    */
   static async verifyPassword(password: string, hash: string): Promise<boolean> {
+    if (typeof password !== 'string' || password.length === 0) {
+      return false;
+    }
+
     return new Promise((resolve, reject) => {
       const [salt, originalHash] = hash.split(':');
 
